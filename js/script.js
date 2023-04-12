@@ -2,11 +2,10 @@ function getComputerChoice() {
 
         let option = ["Rock", "Paper", "Scissors"]; 
         let choice = option[Math.floor(Math.random()*option.length)];
+        console.log (choice)
         return(choice);
         
 }
-
-console.log(getComputerChoice()); 
 
  function playRound (playerSelection, computerSelection) {
     
@@ -29,12 +28,11 @@ console.log(getComputerChoice());
 
     } 
 
-
     let playerSelection = "Rock";
     let computerSelection = getComputerChoice();
 
-
-     console.log(playRound(playerSelection, computerSelection));
+    
+     console.log(playRound(playerSelection, computerSelection ));
 
   
 
