@@ -7,7 +7,8 @@ function getComputerChoice() {
         
 }
 
- function playRound (playerSelection, computerSelection) {
+
+function playRound (playerSelection, computerSelection) {
     
     
          if (playerSelection === "Rock" && computerSelection === "Scissors") {
@@ -28,42 +29,18 @@ function getComputerChoice() {
 
     } 
 
-    let playerSelection = "Rock";
+    let choice = prompt("Enter your choice");
+    let playerSelection = choice.charAt(0).toUpperCase() + choice.slice(1).toLowerCase(); 
     let computerSelection = getComputerChoice();
 
-    
+
      console.log(playRound(playerSelection, computerSelection ));
 
-  
+     /* function game () {
 
-/*if (computerSelection = "Paper") {
-                  return ("You lose! Paper beats Rock");
-            } else if (computerSelection = "Scissors") { 
-                  return ("You win! Rock beats Scissors");
-            } else { 
-                  return ("It's a tie!");
-         }
-
-         */ 
-
-
-
-/* var option = prompt("What will you choose?"); 
-    var choice = ['Rock', 'Paper', 'Scissors']*/ 
-
-
-
-/* 
-- Player INPUTS choice - either rock, paper and scissors 
-
-- Computer returns choice - either rock, paper and scissors 
-
-- IF player input is rock 
-
-   and computer returns choice paper OR scissors,
-  
-  RETURNS "You win!"
-
-  ELSE "You Lose!"
-
-*/ 
+        for (let i=0; i <= 5; i++) {
+    
+            n
+         
+        }
+        */
