@@ -50,16 +50,15 @@ function game () {
 
     for (let i=0; i <= 5; i++) {
          
-
-    let choice = prompt("Enter your choice");
-    let playerSelection = choice.charAt(0).toUpperCase() + choice.slice(1).toLowerCase(); 
-    let computerSelection = getComputerChoice();
+        let choice = prompt("Enter your choice");
+        let playerSelection = choice.charAt(0).toUpperCase() + choice.slice(1).toLowerCase(); 
+        let computerSelection = getComputerChoice();
 
     //updating results of each round as the game goes on 
 
-    console.log(playRound(playerSelection, computerSelection ));
-    console.log("Your score = " + userScore); 
-    console.log("Computer's score = " + computerScore);
+        console.log(playRound(playerSelection, computerSelection ));
+        console.log("Your score = " + userScore); 
+        console.log("Computer's score = " + computerScore);
 
     }
 
@@ -75,3 +74,4 @@ function game () {
 }  
 
 console.log(game());
+
