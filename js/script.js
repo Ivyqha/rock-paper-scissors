@@ -1,15 +1,19 @@
+// creating a random generator of rock, paper, scissors 
+
 function getComputerChoice() {
 
         let option = ["Rock", "Paper", "Scissors"]; 
         let choice = option[Math.floor(Math.random()*option.length)];
         console.log (choice)
         return(choice);
-        
 }
+
 
 function game () {
 
-function playRound (playerSelection, computerSelection) {
+    // creating win/lose outcomes
+
+    function playRound (playerSelection, computerSelection) {
     
     
          if (playerSelection === "Rock" && computerSelection === "Scissors") {
@@ -36,11 +40,13 @@ function playRound (playerSelection, computerSelection) {
 
     } 
 
+    // creating the scoreboard, using a loop for up to 5 rounds 
+
     let userScore = parseInt (0); 
     let computerScore = parseInt (0); 
     let win = "Winner, Winner, Chicken Dinner!";
     let lose = "Loser, Loser, Now Who's Dinner? ";
-    let tie = "It's a tie!";
+    let tie = "No winner or loser! It's a tie!";
 
     for (let i=0; i <= 5; i++) {
          
@@ -49,11 +55,15 @@ function playRound (playerSelection, computerSelection) {
     let playerSelection = choice.charAt(0).toUpperCase() + choice.slice(1).toLowerCase(); 
     let computerSelection = getComputerChoice();
 
+    //updating results of each round as the game goes on 
+
     console.log(playRound(playerSelection, computerSelection ));
     console.log("Your score = " + userScore); 
     console.log("Computer's score = " + computerScore);
 
     }
+
+    // end results of who is the winner or loser 
 
     if (userScore > computerScore) { 
         return win;
