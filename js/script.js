@@ -9,69 +9,86 @@ function getComputerChoice() {
 }
 
 
-function game () {
+// creating win/lose outcomes
+let userScore = 0; 
+let computerScore = 0; 
 
-    // creating win/lose outcomes
-
-    function playRound (playerSelection, computerSelection) {
-    
+function playRound (playerSelection, computerSelection) {
     
          if (playerSelection === "Rock" && computerSelection === "Scissors") {
-            userScore++; 
-            return ("You win! Rock beats Scissors");
+            userScore++;
+            document.getElementById("outcome").textContent = "You win! The computer chose Scissors. Rock beats Scissors";
          } else if (playerSelection === "Scissors" && computerSelection === "Paper") {
-            userScore++ 
-            return ("You win! Scissors beats Paper");
+            userScore++;
+            document.getElementById("outcome").textContent = "You win! The computer chose Paper. Scissors beats Paper";
          } else if (playerSelection === "Paper" && computerSelection === "Rock"){
-            userScore++ 
-            return ("You win! Paper beats Rock");
+            userScore++;
+            document.getElementById("outcome").textContent = "You win! The computer chose Rock. Paper beats Rock";
          } else if (playerSelection === "Scissors" && computerSelection === "Rock") {
-            computerSCore++ 
-            return ("You lose! Rock beats Scissors");
+            computerScore++;
+            document.getElementById("outcome").textContent = "You lose! The computer chose Rock. Rock beats Scissors";
          } else if (playerSelection === "Paper" && computerSelection === "Scissors") {
-            computerScore++
-            return ("You lose! Scissors beats Paper");
+            computerScore++;
+            document.getElementById("outcome").textContent = "You lose! The computer chose Scissors. Scissors beats Paper";
          } else if (playerSelection === "Rock" && computerSelection === "Paper") {
-            computerScore++ 
-            return ("You lose! Paper beats Rock");
+            computerScore++;
+            document.getElementById("outcome").textContent = "You lose! The computer chose Paper. Paper beats Rock";
          } else {
-             return ("It's a tie!");
+            document.getElementById("outcome").textContent = "It's a tie!";
          }
-
     } 
 
-    // creating the scoreboard, using a loop for up to 5 rounds 
+// creating function for each rock paper scissors button 
+let buttons = document.querySelectorAll("button");
+let result = document.querySelector("#results");
 
-    let userScore = parseInt (0); 
-    let computerScore = parseInt (0); 
-    let win = "Winner, Winner, Chicken Dinner!";
-    let lose = "Loser, Loser, Now Who's Dinner? ";
-    let tie = "No winner or loser! It's a tie!";
+function game () {
+    buttons.forEach((button) => { 
+        button.addEventListener("click", function (e) {
 
-    for (let i=0; i <= 5; i++) {
-         
-        let choice = prompt("Enter your choice");
-        let playerSelection = choice.charAt(0).toUpperCase() + choice.slice(1).toLowerCase(); 
-        let computerSelection = getComputerChoice();
+            const targetScore = 5; 
+            let gameOver = false; 
+        
+            // play the game when point score is left than 5 points. Stop game when the winner has been found
+            if(userScore!=5 && computerScore!=5){
 
-    //updating results of each round as the game goes on 
+                const userScores = document.getElementById("userScore");
+                const computerScores = document.getElementById("computerScore");
+                const playerSelection = this.id;
+                const computerSelection = getComputerChoice (); 
+                result.textContent = playRound(playerSelection, computerSelection);
 
-        console.log(playRound(playerSelection, computerSelection ));
-        console.log("Your score = " + userScore); 
-        console.log("Computer's score = " + computerScore);
+            // Release statement of who is the winner when 5 points (end of game) has been reached 
+            if(userScore == 5) {
+                document.getElementById("outcome").textContent = "Winner Winner, Chicken Dinner!"; 
+                gameOver = true;
+            }
+            if(computerScore == 5) {
+                document.getElementById("outcome").textContent = "Loser Loser, Now Who's Dinner?"; 
+                gameOver = true;
+            }
 
+            // update and display scoreboard 
+            userScores.textContent = `You: ${userScore}`;
+            computerScores.textContent = `Computer: ${computerScore}`;
+                
+            } else if (userScore == 5) {
+                document.getElementById("outcome").textContent = 'You already won!'
+            } else if (computerScore == 5){
+                document.getElementById("outcome").textContent = 'You already lost!'
+               
+            }
+        }
+        )
     }
+    )
+}
 
-    // end results of who is the winner or loser 
+game();
 
-    if (userScore > computerScore) { 
-        return win;
-    } else if (userScore < computerScore) { 
-        return lose; 
-    } else { 
-        return tie;
-    }
-}  
 
-console.log(game());
+// notes on what to do:
+// add restart button  
+// edit UI of the website 
+
 
