@@ -8,6 +8,7 @@ function getComputerChoice() {
         return(choice);
 }
 
+const restartBtn = document.getElementById ("restartBtn");
 
 // creating win/lose outcomes
 let userScore = 0; 
@@ -62,21 +63,18 @@ function game () {
             if(userScore == 5) {
                 document.getElementById("outcome").textContent = "Winner Winner, Chicken Dinner!"; 
                 gameOver = true;
+                restartBtn.style.display = "inline";
             }
             if(computerScore == 5) {
                 document.getElementById("outcome").textContent = "Loser Loser, Now Who's Dinner?"; 
                 gameOver = true;
+                restartBtn.style.display = "inline";
             }
 
             // update and display scoreboard 
             userScores.textContent = `You: ${userScore}`;
             computerScores.textContent = `Computer: ${computerScore}`;
                 
-            } else if (userScore == 5) {
-                document.getElementById("outcome").textContent = 'You already won!'
-            } else if (computerScore == 5){
-                document.getElementById("outcome").textContent = 'You already lost!'
-               
             }
         }
         )
@@ -84,7 +82,30 @@ function game () {
     )
 }
 
+    
+// creating a restart button 
+
+/* const restartBtn = document.getElementById ("restartBtn"); 
+
+restartBtn.addEventListener = ("click", () => { 
+    location.reload ();
+    restartBtn.style.display = "block"; 
+}); */
+
+
 game();
+
+function reset () { 
+    userScore = 0; 
+    computerScore = 0; 
+    location.reload () 
+
+}
+
+restartBtn.addEventListener("click", function() { 
+    reset ();
+    game ();
+}); 
 
 
 // notes on what to do:
