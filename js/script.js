@@ -8,7 +8,6 @@ function getComputerChoice() {
         return(choice);
 }
 
-const restartBtn = document.getElementById ("restartBtn");
 
 // creating win/lose outcomes
 let userScore = 0; 
@@ -40,11 +39,15 @@ function playRound (playerSelection, computerSelection) {
     } 
 
 // creating function for each rock paper scissors button 
-let buttons = document.querySelectorAll("button");
+let buttonsId = ["Rock", "Scissors", "Paper"];
 let result = document.querySelector("#results");
 
+const restartBtn = document.getElementById ("restartBtn");
+const startBtn = document.getElementById ("startBtn"); 
+
 function game () {
-    buttons.forEach((button) => { 
+    buttonsId.forEach(id => { 
+        const button = document.getElementById (id); 
         button.addEventListener("click", function (e) {
 
             const targetScore = 5; 
@@ -74,7 +77,7 @@ function game () {
             // update and display scoreboard 
             userScores.textContent = `You: ${userScore}`;
             computerScores.textContent = `Computer: ${computerScore}`;
-                
+           
             }
         }
         )
@@ -82,18 +85,20 @@ function game () {
     )
 }
 
+startBtn.addEventListener("click", function () { 
+    game (); 
+    buttonsId.forEach(id => { 
+        const button = document.getElementById (id); 
+        button.style.display= "inline"; 
+    })
+
+    startBtn.style.display = "none";
+
+    let scoreBoard = document.querySelector(".scoreboard"); 
+    scoreBoard.style.display = "inline";  
     
-// creating a restart button 
+}); 
 
-/* const restartBtn = document.getElementById ("restartBtn"); 
-
-restartBtn.addEventListener = ("click", () => { 
-    location.reload ();
-    restartBtn.style.display = "block"; 
-}); */
-
-
-game();
 
 function reset () { 
     userScore = 0; 
@@ -109,7 +114,8 @@ restartBtn.addEventListener("click", function() {
 
 
 // notes on what to do:
-// add restart button  
+
+// create a big start button and then the game starts 
 // edit UI of the website 
 
 
