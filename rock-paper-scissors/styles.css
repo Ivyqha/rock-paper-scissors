@@ -1,3 +1,124 @@
+
+* { 
+    background-color: rgb(208, 253, 253);
+}
+
+/*landing page */
+h1 { 
+    font-size: 175px;
+    -webkit-text-stroke-color: rgb(255, 132, 25);
+    -webkit-text-stroke-width: 8px;
+    letter-spacing: 1.5rem;
+    text-align: center; 
+    text-transform: uppercase; 
+    font-family: 'Luckiest Guy', cursive;
+    color: rgb(0, 112, 143); 
+    
+}
+
+.rules {
+     font-size: 60px;
+     font-weight: bold;
+     font-family: 'Roboto Mono', monospace;
+     text-align: center;
+     color:rgb(0, 112, 143); 
+
+} 
+
+.instructions { 
+    font-family: 'Roboto Mono', monospace; 
+    font-size: 30px;
+    text-align: center;
+    margin-top: 30px; 
+} 
+
+
+.startBtn-container { 
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    margin-top: 300px;
+    
+    
+}
+
+button.start { 
+    font-size: 100px;
+    font-family: 'Luckiest Guy', cursive;
+    text-align: center;
+    padding: 40px 80px 10px 80px;
+    background-color: rgb(255, 132, 25) ;
+    color: white; 
+    border: 10px rgb(219, 102, 0) ; 
+    border-style: solid;
+    border-radius: 15px;
+
+}
+
+/* Game page after you click the start button */ 
+.choice-container  {
+    display: flex; 
+    justify-content: space-evenly;
+    margin-top: 100px;
+    margin-bottom: 100px; 
+    
+}
+
 .playButton { 
     display: none;
+    font-size: 100px;
+    font-family: 'Luckiest Guy', cursive;
+    background-color:rgb(255, 250, 250) ;
+    color: rgb(255, 132, 25); 
+    padding:40px 80px 10px 80px; 
+    border: 10px rgb(0, 112, 143); 
+    border-style: solid;
+    border-radius: 15px;
+}
+
+.container { 
+    display: block;
+    height: 500px;
+}
+
+.score { 
+    display: none; 
+    font-size: 50px;
+    font-family: 'Roboto Mono', monospace; 
+    font-weight:bold; 
+}
+
+.scoreboard {
+    display: flex; 
+    margin: auto;
+    justify-content: space-evenly;
+    margin-top: 100px;
+    padding: 100px;
+}
+
+.message { 
+    display: flex; 
+    font-family: 'Roboto Mono', monospace; 
+    font-size: 50px;
+    font-weight: bold;
+    color:rgb(0, 112, 143); 
+    justify-content: center;
+    margin: 0;
+}
+
+.restartBtn-container { 
+    display: flex; 
+    justify-content: center;
+}
+
+.restart { 
+    font-size: 100px;
+    font-family: 'Luckiest Guy', cursive;
+    background-color:rgb(0, 112, 143) ;
+    color: white; 
+    padding:40px 80px 10px 80px; 
+    border: 10px rgb(1, 58, 74) ;  
+    border-style: solid;
+    border-radius: 15px;
+
 }

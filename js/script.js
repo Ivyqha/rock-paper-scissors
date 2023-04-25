@@ -17,24 +17,24 @@ function playRound (playerSelection, computerSelection) {
     
          if (playerSelection === "Rock" && computerSelection === "Scissors") {
             userScore++;
-            document.getElementById("outcome").textContent = "You win! The computer chose Scissors. Rock beats Scissors";
+            document.getElementById("outcome").textContent = "1 point for you! The computer chose Scissors. Rock beats Scissors";
          } else if (playerSelection === "Scissors" && computerSelection === "Paper") {
             userScore++;
-            document.getElementById("outcome").textContent = "You win! The computer chose Paper. Scissors beats Paper";
+            document.getElementById("outcome").textContent = "1 point for you! The computer chose Paper. Scissors beats Paper";
          } else if (playerSelection === "Paper" && computerSelection === "Rock"){
             userScore++;
-            document.getElementById("outcome").textContent = "You win! The computer chose Rock. Paper beats Rock";
+            document.getElementById("outcome").textContent = "1 point for you! The computer chose Rock. Paper beats Rock";
          } else if (playerSelection === "Scissors" && computerSelection === "Rock") {
             computerScore++;
-            document.getElementById("outcome").textContent = "You lose! The computer chose Rock. Rock beats Scissors";
+            document.getElementById("outcome").textContent = "No point! The computer chose Rock. Rock beats Scissors";
          } else if (playerSelection === "Paper" && computerSelection === "Scissors") {
             computerScore++;
-            document.getElementById("outcome").textContent = "You lose! The computer chose Scissors. Scissors beats Paper";
+            document.getElementById("outcome").textContent = "No point! The computer chose Scissors. Scissors beats Paper";
          } else if (playerSelection === "Rock" && computerSelection === "Paper") {
             computerScore++;
-            document.getElementById("outcome").textContent = "You lose! The computer chose Paper. Paper beats Rock";
+            document.getElementById("outcome").textContent = "No point! The computer chose Paper. Paper beats Rock";
          } else {
-            document.getElementById("outcome").textContent = "It's a tie!";
+            document.getElementById("outcome").textContent = "No one scores a point! You chose the same";
          }
     } 
 
@@ -66,17 +66,30 @@ function game () {
             if(userScore == 5) {
                 document.getElementById("outcome").textContent = "Winner Winner, Chicken Dinner!"; 
                 gameOver = true;
-                restartBtn.style.display = "inline";
+                
+                buttonsId.forEach(id => { 
+                    const button = document.getElementById (id);   
+                    button.style.display = "none"; 
+                
+                });      
+                restartBtn.style.display = "block";
             }
             if(computerScore == 5) {
                 document.getElementById("outcome").textContent = "Loser Loser, Now Who's Dinner?"; 
                 gameOver = true;
-                restartBtn.style.display = "inline";
+                
+                
+                buttonsId.forEach(id => { 
+                    const button = document.getElementById (id);   
+                    button.style.display = "none"; 
+                
+                });  
+                restartBtn.style.display = "block";
             }
 
             // update and display scoreboard 
-            userScores.textContent = `You: ${userScore}`;
-            computerScores.textContent = `Computer: ${computerScore}`;
+            userScores.textContent = `You: ${userScore} points` ;
+            computerScores.textContent = `Computer: ${computerScore} points`;
            
             }
         }
@@ -94,9 +107,11 @@ startBtn.addEventListener("click", function () {
 
     startBtn.style.display = "none";
 
-    let scoreBoard = document.querySelector(".scoreboard"); 
-    scoreBoard.style.display = "inline";  
-    
+    let scoreBoard = ["userScore", "computerScore"]; 
+        scoreBoard.forEach(id => { 
+        const score = document.getElementById (id);
+        score.style.display = "inline";  
+        });
 }); 
 
 
@@ -115,7 +130,8 @@ restartBtn.addEventListener("click", function() {
 
 // notes on what to do:
 
-// create a big start button and then the game starts 
+//create hover motion over choice buttons 
+//replace playbuttons with restart button when the game is over 
 // edit UI of the website 
 
 
