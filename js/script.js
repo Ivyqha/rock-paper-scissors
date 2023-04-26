@@ -96,14 +96,51 @@ function game () {
         )
     }
     )
-}
+};
+
+//creating colour changing mouseover for each button 
+
+const startBtnHover = document.getElementById ("startBtn"); 
+    startBtnHover.addEventListener("mouseover", function () { 
+        startBtnHover.style.backgroundColor = "white" ;
+        startBtnHover.style.color = "rgb(255, 132, 25)"
+    }); 
+
+    startBtnHover.addEventListener("mouseout", function () { 
+        startBtnHover.style.backgroundColor = "rgb(255, 132, 25)" ;
+        startBtnHover.style.color = "white"; 
+    }); 
+
+const restartBtnHover = document.getElementById ("restartBtn"); 
+    restartBtnHover.addEventListener("mouseover", function () { 
+        restartBtnHover.style.backgroundColor = "rgb(255, 250, 250)"; 
+        restartBtnHover.style.color = "rgb(0, 112, 143)"; 
+    });
+
+    restartBtnHover.addEventListener("mouseout", function () { 
+        restartBtnHover.style.backgroundColor = "rgb(0, 112, 143)"; 
+        restartBtnHover.style.color = "rgb(255, 250, 250)"; 
+    });
+
+    buttonsId.forEach (id => {
+        const RockPaperScissors = document.getElementById (id); 
+            RockPaperScissors.addEventListener("mouseover", function () {
+                RockPaperScissors.style.backgroundColor = "rgb(255, 132, 25)"; 
+                RockPaperScissors.style.color = "rgb(255, 250, 250)"; 
+        });
+            RockPaperScissors.addEventListener("mouseout", function () {
+                RockPaperScissors.style.backgroundColor = "rgb(255, 250, 250)"; 
+                RockPaperScissors.style.color = "rgb(255, 132, 25)"; 
+        });
+    }); 
+//creating start button with an event, so it disappears after its pressed. 
 
 startBtn.addEventListener("click", function () { 
     game (); 
     buttonsId.forEach(id => { 
         const button = document.getElementById (id); 
         button.style.display= "inline"; 
-    })
+    });
 
     startBtn.style.display = "none";
 
@@ -114,6 +151,7 @@ startBtn.addEventListener("click", function () {
         });
 }); 
 
+//creating a restart button so it refreshes the game 
 
 function reset () { 
     userScore = 0; 
