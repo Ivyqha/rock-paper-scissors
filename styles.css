@@ -37,7 +37,7 @@ h1 {
     display: flex; 
     justify-content: center;
     align-items: center;
-    margin-top: 300px;
+    margin-top: 150px;
     
     
 }
@@ -59,8 +59,8 @@ button.start {
 .choice-container  {
     display: flex; 
     justify-content: space-evenly;
-    margin-top: 100px;
-    margin-bottom: 100px; 
+    margin-top: 75px;
+    margin-bottom: 75px; 
     
 }
 
